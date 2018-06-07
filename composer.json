@@ -1,6 +1,6 @@
 {
     "name": "betalabs/php-sigep",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "type": "library",
     "description": "Integração com Web Service do Correios. Gera etiquetas, consulta preços e prazos, imprime etiquetas e PLP, etc.",
     "keywords": ["correios", "sigep"],
