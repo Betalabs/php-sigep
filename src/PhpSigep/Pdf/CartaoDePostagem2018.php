@@ -190,6 +190,7 @@ class CartaoDePostagem2018
                 case ServicoDePostagem::SERVICE_PAC_CONTRATO_AGENCIA_TA:
                 case ServicoDePostagem::SERVICE_PAC_CONTRATO_AGENCIA_03298:
                 case ServicoDePostagem::SERVICE_PAC_CONTRATO_AGENCIA_03085:
+                case ServicoDePostagem::SERVICE_PAC_MINI_ENVIOS_04227:
                     $chancela = new Pac2018(86, $this->pdf->GetY() + 13, $nomeRemetente, $accessData);
                     $_texto = 'PAC';
                     break;

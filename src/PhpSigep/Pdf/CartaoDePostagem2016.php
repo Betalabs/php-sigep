@@ -234,6 +234,7 @@ class CartaoDePostagem2016
                     case ServicoDePostagem::SERVICE_PAC_CONTRATO_GRANDES_FORMATOS_LM:
                     case ServicoDePostagem::SERVICE_PAC_CONTRATO_AGENCIA_03298:
                     case ServicoDePostagem::SERVICE_PAC_CONTRATO_AGENCIA_03085:
+                    case ServicoDePostagem::SERVICE_PAC_MINI_ENVIOS_04227:
                         if ($this->layoutPac === CartaoDePostagem::TYPE_CHANCELA_PAC) {
                             $chancela = new Pac($lPosChancela, $tPosChancela, $nomeRemetente, $accessData);
                         } else {
