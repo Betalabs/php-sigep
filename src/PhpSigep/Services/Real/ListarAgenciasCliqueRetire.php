@@ -56,7 +56,7 @@ class ListarAgenciasCliqueRetire
             if ($e instanceof \SoapFault) {
                 $result->setIsSoapFault(true);
                 $result->setErrorCode($e->getCode());
-                $result->setErrorMsg("Resposta do Correios: " . SoapClientFactory::convertEncoding($e->getMessage()));
+                $result->setErrorMsg("Resposta do Correios1: " . SoapClientFactory::convertEncoding($e->getMessage()));
             } else {
                 $result->setErrorCode($e->getCode());
                 $result->setErrorMsg($e->getMessage());
