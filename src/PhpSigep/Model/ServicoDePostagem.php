@@ -55,6 +55,7 @@ class ServicoDePostagem extends AbstractModel
     const SERVICE_SEDEX_CONTRATO_AGENCIA_TA = '04553';
     const SERVICE_PAC_CONTRATO_AGENCIA_TA = '04596';
 
+
 //    const SERVICE_CARTA_REGISTRADA           = '10138';
 
     // NOVOS CODIGOS DE SERVICO DOS CORREIOS
@@ -171,16 +172,16 @@ class ServicoDePostagem extends AbstractModel
      */
     public function __construct($serviceCode)
     {
-        $normalizedServiceCode = sprintf("%'05s", $serviceCode);
+//        $normalizedServiceCode = sprintf("%'05s", $serviceCode);
+//
+//        if (!isset(self::$services[$normalizedServiceCode])) {
+//            throw new Exception('There is no service with the code "' . $serviceCode . '". ' .  $normalizedServiceCode);
+//        }
 
-        if (!isset(self::$services[$normalizedServiceCode])) {
-            throw new Exception('There is no service with the code "' . $serviceCode . '".');
-        }
-
-        $service = self::$services[$normalizedServiceCode];
+        $service = self::$services[$serviceCode];
         parent::__construct(
             array(
-                'codigo'    => $normalizedServiceCode,
+                'codigo'    => $serviceCode,
                 'nome'      => $service[0],
                 'idServico' => $service[1],
             )
