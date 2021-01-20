@@ -66,10 +66,10 @@ class FecharPreListaDePostagem
             if ($e instanceof \SoapFault) {
                 $result->setIsSoapFault(true);
                 $result->setErrorCode($e->getCode());
-                $result->setErrorMsg(SoapClientFactory::convertEncoding($e->getMessage()));
+                $result->setErrorMsg(' xml SoapFault ' . print_r($soapArgs, true) . SoapClientFactory::convertEncoding($e->getMessage()));
             } else {
                 $result->setErrorCode($e->getCode());
-                $result->setErrorMsg($e->getMessage());
+                $result->setErrorMsg(' xml ' . print_r($soapArgs, true) . ' ' . $e->getMessage());
             }
         }
         
