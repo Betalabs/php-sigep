@@ -38,7 +38,7 @@ class FecharPreListaDePostagem
 //		$xml = iconv('UTF-8', 'ISO-8859-1', $xml);
 
         $soapArgs = array(
-            'xml'            => '<![CDATA[' . $xml . ']]>',
+            'xml'            => $xml,
             'idPlpCliente'   => '',
             'cartaoPostagem' => $params->getAccessData()->getCartaoPostagem(),
             'listaEtiquetas' => $listaEtiquetas,
