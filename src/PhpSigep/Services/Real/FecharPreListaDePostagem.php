@@ -34,11 +34,11 @@ class FecharPreListaDePostagem
         }
 
         $xml = utf8_encode($xmlDaPreLista->flush());
-//		$xml = utf8_encode($xml);
-//		$xml = iconv('UTF-8', 'ISO-8859-1', $xml);
+		$xml = utf8_encode($xml);
+		$xml = iconv('UTF-8', 'ISO-8859-1', $xml);
 
         $soapArgs = array(
-            'xml'            => '<![CDATA[' . str_replace(['<![CDATA[',']]>'], ['',''], $xml) . ']]>',
+            'xml'            => $xml,
             'idPlpCliente'   => '',
             'cartaoPostagem' => $params->getAccessData()->getCartaoPostagem(),
             'listaEtiquetas' => $listaEtiquetas,
@@ -66,10 +66,10 @@ class FecharPreListaDePostagem
             if ($e instanceof \SoapFault) {
                 $result->setIsSoapFault(true);
                 $result->setErrorCode($e->getCode());
-                $result->setErrorMsg(' xml SoapFault ' . print_r($soapArgs, true) . SoapClientFactory::convertEncoding($e->getMessage()));
+                $result->setErrorMsg(SoapClientFactory::convertEncoding($e->getMessage()));
             } else {
                 $result->setErrorCode($e->getCode());
-                $result->setErrorMsg(' xml ' . print_r($soapArgs, true) . ' ' . $e->getMessage());
+                $result->setErrorMsg($e->getMessage());
             }
         }
         
