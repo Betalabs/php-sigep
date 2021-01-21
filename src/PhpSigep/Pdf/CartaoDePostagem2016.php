@@ -325,7 +325,8 @@ class CartaoDePostagem2016
                 $str2 = $pedido > 0 ?  '      Pedido: '. $pedido : '               ';
                 $this->t(15, $str2, 1, 'L',  null);
                 $this->pdf->SetXY(35, 25);
-                $this->t(15, '   PLP: ' . $this->idPlpCorreios, 1, 'C',  null);
+                $plpNumber = (!empty($objetoPostal->getDestino()->getPlp())) ?  :  $this->idPlpCorreios;
+                $this->t(15, '   PLP: ' . $plpNumber, 1, 'C',  null);
                 $this->pdf->SetXY(70, 25);
                 $this->t(15, '   Peso(g): ' . round($objetoPostal->getPeso()*1000), 1, 'R',  null);
 

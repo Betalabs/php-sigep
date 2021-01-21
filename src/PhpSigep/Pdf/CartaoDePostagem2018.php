@@ -190,9 +190,12 @@ class CartaoDePostagem2018
                 case ServicoDePostagem::SERVICE_PAC_CONTRATO_AGENCIA_TA:
                 case ServicoDePostagem::SERVICE_PAC_CONTRATO_AGENCIA_03298:
                 case ServicoDePostagem::SERVICE_PAC_CONTRATO_AGENCIA_03085:
-                case ServicoDePostagem::SERVICE_PAC_MINI_ENVIOS_04227:
                     $chancela = new Pac2018(86, $this->pdf->GetY() + 13, $nomeRemetente, $accessData);
                     $_texto = 'PAC';
+                    break;
+                case ServicoDePostagem::SERVICE_PAC_MINI_ENVIOS_04227:
+                    $simbolo_de_encaminhamento = realpath(dirname(__FILE__)) . '/simbolo-mini-envios.png';
+                    $_texto = 'MINI ENVIOS';
                     break;
                 case ServicoDePostagem::SERVICE_SEDEX_41556:
                 case ServicoDePostagem::SERVICE_SEDEX_A_VISTA:
@@ -256,7 +259,7 @@ class CartaoDePostagem2018
             $this->pdf->SetXY(5, 27);
             $this->pdf->SetFontSize(9);
             //$this->pdf->SetTextColor(51,51,51);
-            $nf = $objetoPostal->getDestino()->getNumeroNotaFiscal();
+            $nf = (int)$objetoPostal->getDestino()->getNumeroNotaFiscal();
             $str = $nf > 0 ?  'NF: '. substr($nf,5) : ' ';
             $this->t(15, $str, 1, 'L',  null);
 

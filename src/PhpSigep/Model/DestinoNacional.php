@@ -8,6 +8,11 @@ class DestinoNacional extends AbstractModel implements Destino
 {
 
     /**
+     * @var string
+     */
+    protected $plp;
+
+    /**
      * Bairro do destinatario.
      * Max length: 30
      * @var string
@@ -106,6 +111,15 @@ class DestinoNacional extends AbstractModel implements Destino
         return $this->bairro;
     }
 
+
+    /**
+     * @return string
+     */
+    public function getPlp()
+    {
+        return $this->plp;
+    }
+
     /**
      * @param string $bairro
      */
@@ -160,6 +174,14 @@ class DestinoNacional extends AbstractModel implements Destino
     public function setDescricaoObjeto($descricaoObjeto)
     {
         $this->descricaoObjeto = $descricaoObjeto;
+    }
+
+    /**
+     * @param string $descricaoObjeto
+     */
+    public function setPlp($plp)
+    {
+        $this->plp = $plp;
     }
 
     /**
