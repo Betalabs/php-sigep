@@ -67,6 +67,7 @@ class ServicoDePostagem extends AbstractModel
     const SERVICE_SEDEX_CONTRATO_AGENCIA_03050 = '03050';
 
     const SERVICE_PAC_MINI_ENVIOS_04227 = '04227';
+    const SERVICE_PAC_MINI_ENVIOS_CTR_04235 = '04235';
 
 
     protected static $services
@@ -77,6 +78,7 @@ class ServicoDePostagem extends AbstractModel
 
             // Pac Mini envios
             self::SERVICE_PAC_MINI_ENVIOS_04227 => array('Pac 04227', 159982),
+            self::SERVICE_PAC_MINI_ENVIOS_CTR_04235 => array('Pac 04235', 159983),
 
             // NOVOS CODIGOS DE SERVICO DOS CORREIOS BRONZE (1o sem 2020)
             self::SERVICE_PAC_CONTRATO_AGENCIA_03085 => array('Pac 03085', 162011),
