@@ -266,9 +266,13 @@ class FecharPreListaDePostagem
      */
     private function writeServicoAdicional(\XMLWriter $writer, array $servicosAdicionais)
     {
-        $writer->startElement('servico_adicional');
 
-        // De acordo com o manual este serviço é obrigatório 
+        // De acordo com o manual este serviço é obrigatório
+        if(empty($servicosAdicionais)){
+            $writer->startElement('servico_adicional');
+            $writer->writeElement('valor_declarado');
+        }
+
         $writer->writeElement('codigo_servico_adicional', ServicoAdicional::SERVICE_REGISTRO);
 
         foreach ($servicosAdicionais as $servicoAdicional) {
@@ -279,8 +283,8 @@ class FecharPreListaDePostagem
                     $writer->writeElement('valor_declarado', (float)$servicoAdicional->getValorDeclarado());
                 }
             }
+
         }
-        $writer->writeElement('valor_declarado');
         $writer->endElement();
     }
 
