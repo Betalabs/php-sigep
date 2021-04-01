@@ -50,7 +50,7 @@ class FecharPreListaDePostagem
         try {
             $r = SoapClientFactory::getSoapClient()->fechaPlpVariosServicos($soapArgs);
             if (class_exists('\StaLib_Logger',false)) {
-                \StaLib_Logger::log('Retorno SIGEP fecha PLP: ' . print_r($r, true));
+                \StaLib_Logger::log('Retorno SIGEP fecha PLP: ');
             }
             if ($r instanceof \SoapFault) {
                 throw $r;
@@ -66,10 +66,10 @@ class FecharPreListaDePostagem
             if ($e instanceof \SoapFault) {
                 $result->setIsSoapFault(true);
                 $result->setErrorCode($e->getCode());
-                $result->setErrorMsg('soap fault ' . print_r($xml, true)  .   SoapClientFactory::convertEncoding($e->getMessage()));
+                $result->setErrorMsg(SoapClientFactory::convertEncoding($e->getMessage()));
             } else {
                 $result->setErrorCode($e->getCode());
-                $result->setErrorMsg('xml ' . print_r($xml, true)  . $e->getMessage());
+                $result->setErrorMsg($e->getMessage());
             }
         }
         
