@@ -69,9 +69,14 @@ class ServicoDePostagem extends AbstractModel
     const SERVICE_PAC_MINI_ENVIOS_04227 = '04227';
     const SERVICE_PAC_MINI_ENVIOS_CTR_04235 = '04235';
 
+    const CARTA_REG_O2_SELO_E_SE_80500 = '80500';
 
     protected static $services
         = array(
+
+            self::CARTA_REG_O2_SELO_E_SE_80500 => array('C regis', 162159),
+
+
             // NOVOS CODIGOS DE SERVICO DOS CORREIOS
             self::SERVICE_PAC_CONTRATO_AGENCIA_03298 => array('Pac 03298', 162026),
             self::SERVICE_SEDEX_CONTRATO_AGENCIA_03220 => array('Sedex 03220', 162022),
