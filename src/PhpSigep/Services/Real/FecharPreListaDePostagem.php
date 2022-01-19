@@ -50,7 +50,7 @@ class FecharPreListaDePostagem
         try {
             $r = SoapClientFactory::getSoapClient()->fechaPlpVariosServicos($soapArgs);
             if (class_exists('\StaLib_Logger',false)) {
-                \StaLib_Logger::log('Retorno SIGEP fecha PLP: ' . print_r($r, true));
+                \StaLib_Logger::log('Retorno SIGEP fecha PLP: ');
             }
             if ($r instanceof \SoapFault) {
                 throw $r;
@@ -66,10 +66,11 @@ class FecharPreListaDePostagem
             if ($e instanceof \SoapFault) {
                 $result->setIsSoapFault(true);
                 $result->setErrorCode($e->getCode());
-                $result->setErrorMsg('soap fault ' . print_r($xml, true)  .   SoapClientFactory::convertEncoding($e->getMessage()));
+                $result->setErrorMsg('soap fault ' .  SoapClientFactory::convertEncoding($e->getMessage()). ' XML PLP: ' . print_r($xml, true));
             } else {
+
                 $result->setErrorCode($e->getCode());
-                $result->setErrorMsg('xml ' . print_r($xml, true)  . $e->getMessage());
+                $result->setErrorMsg($e->getMessage() . ' XML PLP: ' . print_r($xml, true)  );
             }
         }
         
@@ -151,6 +152,7 @@ class FecharPreListaDePostagem
         $writer->writeCdata($this->_($data->getRemetente()->getTelefone(), 50));
         $writer->endElement();
         $writer->startElement('cpf_cnpj_remetente');
+        $writer->writeCdata($this->_(preg_replace('/[^\d]/', '', $data->getRemetente()->getIdentificacao()), 14));
         $writer->endElement();
         $writer->writeElement('ciencia_conteudo_proibido');
         $writer->endElement();
@@ -223,6 +225,7 @@ class FecharPreListaDePostagem
         $writer->writeCdata($this->_($destinatario->getNumero(), 6));
         $writer->endElement();
         $writer->startElement('cpf_cnpj_destinatario');
+        $writer->writeCdata($this->_(preg_replace('/[^\d]/', '', $destinatario->getIdentificacao()), 14));
         $writer->endElement();
         $writer->endElement();
     }
