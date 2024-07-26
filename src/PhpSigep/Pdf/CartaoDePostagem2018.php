@@ -260,7 +260,7 @@ class CartaoDePostagem2018
             $this->pdf->SetFontSize(9);
             //$this->pdf->SetTextColor(51,51,51);
             $nf = (int)$objetoPostal->getDestino()->getNumeroNotaFiscal();
-            $str = $nf > 0 ?  'NF: '. substr($nf,5) : ' ';
+            $str = $nf > 0 ?  'NF: '. $nf : ' ';
             $this->t(15, $str, 1, 'L',  null);
 
             // Contrato
