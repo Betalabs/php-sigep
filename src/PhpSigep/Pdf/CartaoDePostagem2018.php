@@ -557,8 +557,6 @@ class CartaoDePostagem2018
         $uf = $remetente->getUf();
         $cep = $remetente->getCep();
 
-        $cep = preg_replace('/(\d{5})-{0,1}(\d{3})/', '$1-$2', $cep);
-
         return $this->writeEndereco(
             $t,
             $l,
