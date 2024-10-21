@@ -472,6 +472,7 @@ class CartaoDePostagem2018
     {
         $replaces = array(
             'ā' => 'a',
+            'º' => ''
         );
         $str = str_replace(array_keys($replaces), array_values($replaces), $str);
         if (extension_loaded('iconv')) {
