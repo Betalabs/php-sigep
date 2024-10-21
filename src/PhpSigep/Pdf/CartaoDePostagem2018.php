@@ -520,9 +520,7 @@ class CartaoDePostagem2018
             $cidade = $destino->getCidade();
             $uf = $destino->getUf();
             $cep = $destino->getCep();
-        }
-
-        $cep = preg_replace('/(\d{5})-{0,1}(\d{3})/', '$1-$2', $cep);
+        }        
 
         $t = $this->writeEndereco(
             $t1,
